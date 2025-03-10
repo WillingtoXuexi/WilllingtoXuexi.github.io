@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>团队成员 - 智能计算课题组</title>
+    <style>
+        .member-container {
+            padding: 2rem 10%;
+        }
+
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .member-card {
+            text-align: center;
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">...</nav>
+
+    <div class="member-container">
+        <h1>研究团队</h1>
+        <div class="member-grid" id="memberList">
+            <!-- 成员数据自动加载 -->
+        </div>
+    </div>
+
+    <script>
+        fetch('../data/members.json')
+            .then(response => response.json())
+            .then(members => {
+                const container = document.getElementById('memberList');
+                container.innerHTML = members.map(member => `
+                    <div class="member-card">
+                        <img src="../images/members/${member.photo}" 
+                             alt="${member.name}" 
+                             class="member-photo">
+                        <h3>${member.name}</h3>
+                        <p>${member.position}</p>
+                        ${member.research ? `<p>研究方向：${member.research}</p>` : ''}
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>

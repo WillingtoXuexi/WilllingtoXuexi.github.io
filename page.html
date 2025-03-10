@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能计算课题组 - XX大学</title>
+    <style>
+        :root {
+            --primary-blue: #2A3B7C;
+            --accent-purple: #6C5B7B;
+            --light-accent: #9B89B3;
+            --bg-gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background: var(--bg-gradient);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 2rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .hero {
+            height: 60vh;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            margin: 2rem 10%;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .member-card {
+            text-align: center;
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        /* 悬浮动效 */
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home">主页</a>
+        <a href="publications.html">研究成果</a>
+        <a href="members.html">团队成员</a>
+    </nav>
+
+    <!-- 主页内容 -->
+    <section id="home">
+        <div class="hero">
+            <div>
+                <h1>智能计算与数据分析课题组</h1>
+                <p>致力于人工智能前沿技术研究与应用</p>
+            </div>
+        </div>
+
+        <!-- 导师信息 -->
+        <div class="card" id="faculty">
+            <h2>课题负责人</h2>
+            <div class="profile-grid">
+                <!-- 替换以下内容 -->
+                <div class="member-card">
+                    <img src="images/teachers/张三.jpg" alt="张三教授" style="width: 200px; border-radius: 50%;">
+                    <h3>张三 教授</h3>
+                    <p>研究方向：机器学习、数据挖掘</p>
+                    <p>邮箱：zhangsan@university.edu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary-blue); color: white; text-align: center; padding: 1rem;">
+        © 2023 XX大学智能计算课题组
+    </footer>
+
+    <script>
+        // 数据加载示例（需要本地服务器环境）
+        fetch('data/members.json')
+            .then(response => response.json())
+            .then(data => {
+                // 处理成员数据加载
+            });
+    </script>
+</body>
+</html>

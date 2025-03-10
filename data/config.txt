@@ -1,0 +1,7 @@
+{
+    "introduction": "我们实验室是巴拉巴拉巴拉",
+    "contact": {
+        "address": "珠海北师大爸爸喇叭喇叭",
+        "email": "group@university.edu"
+    }
+}

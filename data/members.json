@@ -1,0 +1,14 @@
+[
+    {
+        "name": "李四",
+        "photo": "李四.jpg",
+        "position": "博士研究生",
+        "research": "深度学习"
+    },
+    {
+        "name": "王五",
+        "photo": "王五.jpg",
+        "position": "硕士研究生",
+        "research": "计算机视觉"
+    }
+]

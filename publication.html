@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>研究成果 - 智能计算课题组</title>
+    <style>
+        /* 继承主站配色 */
+        :root {
+            --primary-blue: #2A3B7C;
+            --accent-purple: #6C5B7B;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .publication-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .pub-item {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+            background: #f8f9ff;
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-journal {
+            font-weight: bold;
+            color: var(--accent-purple);
+        }
+
+        .pub-doi {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏与主站一致 -->
+    <nav class="navbar">...</nav>
+
+    <div class="publication-container">
+        <h1>近期发表</h1>
+        <div id="publications-list">
+            <!-- JSON数据自动加载 -->
+        </div>
+    </div>
+
+    <script>
+        // 加载期刊数据
+        fetch('../data/pubs.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('publications-list');
+                container.innerHTML = data.map(pub => `
+                    <div class="pub-item">
+                        <div class="pub-title">${pub.title}</div>
+                        <div class="pub-journal">${pub.journal} · ${pub.date}</div>
+                        <div class="pub-doi">DOI: <a href="${pub.doi}">${pub.doi}</a></div>
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
